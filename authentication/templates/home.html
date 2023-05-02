@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <header>
+        {% if user.is_authenticated %}
+        <h1>Welcome {{user.username}}</h1>
+        {% else %}
+        <h1>My Homepage</h1>
+        {% endif %}
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="logout">Logout</a></li>
+                {% else %}
+                <li><a href="login">Login</a></li>
+                <li><a href="signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to my homepage</h2>
+            <p>This is a simple example of a homepage created using HTML and CSS.</p>
+            <a href="#" class="button">Learn more</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Homepage. All rights reserved.</p>
+    </footer>
+</body>
+</html>
